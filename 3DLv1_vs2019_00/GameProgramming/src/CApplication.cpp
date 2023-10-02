@@ -4,6 +4,8 @@
 #include "CRectangle.h"
 #include "CVector.h"
 #include "CTriangle.h"
+//モデルデータの指定
+#define MODEL_OBJ "res\\obj.obj","res\\obj.mtl"
 
 
 //クラスのstatic変数
@@ -28,6 +30,8 @@ CTexture* CApplication::Texture()
 void CApplication::Start()
 {
 	mEye = CVector(1.0f, 2.0f, 3.0f);
+	//モデルファイルの入力
+	mModel.Load(MODEL_OBJ);
 }
 
 void CApplication::Update()
