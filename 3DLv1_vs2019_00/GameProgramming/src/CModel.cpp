@@ -157,7 +157,7 @@ void CModel::Load(char* obj, char* mtl) {
 				mTriangles.push_back(t);
 			}
 		}
-		//先頭がusemtlの時,マテリアルインデックスをw取得する
+		//先頭がsemtlの時,マテリアルインデックスを取得する
 		else if (strcmp(str[0], "usemtl") == 0) {
 			//可変長配列を後から比較
 			for (idx = mpMaterials.size() - 1; idx > 0; idx--) {
