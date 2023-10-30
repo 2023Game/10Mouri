@@ -7,7 +7,7 @@
 //文字列s1と文字列s2の比較
 //s1とs2が等しければ0を
 //等しくなければ0以外を返す
-int strcmp(const char* s1, const char* s2)
+int strcmp(const char* s1 , const char* s2)
 {
 	int i = 0;
 	//文字が同じ間は繰り返し
@@ -32,6 +32,8 @@ void CModel::Load(char* obj, char* mtl) {
 	std::vector<CVector>vertex;
 	//法線ベクトル(CVector型)の可変長配列(std::vector)normal
 	std::vector<CVector>normal;
+	//テクスチャマッピングの保存(CVector型)
+	std::vector<CVector> uv;
 	//入力エリアを作成する
 	char buf[256];
 
@@ -60,6 +62,8 @@ void CModel::Load(char* obj, char* mtl) {
 		//先頭がnewmtlの時,マテリアルを追加する
 		if (strcmp(str[0], "newmtl") == 0) {
 			CMaterial* pm = new CMaterial();
+			//マテリアル名の設定
+			pm->Name(str[1]);
 			//マテリアルの可変長配列に追加
 			mpMaterials.push_back(pm);
 			//配列の長さを取得
@@ -74,6 +78,10 @@ void CModel::Load(char* obj, char* mtl) {
 		//先頭がdの時,a値を設定する
 		else if (strcmp(str[0], "d") == 0) {
 			mpMaterials[idx]->Diffuse()[3] = atof(str[1]);
+		}
+		//先頭がmap_Kdの時,テクスチャを入力する
+		else if (strcmp(str[0], "map_Kd") == 0) {
+			mpMaterials[idx]->Texture()->Load(str[1]);
 		}
 	}
 	//ファイルのクローズ
@@ -116,20 +124,40 @@ void CModel::Load(char* obj, char* mtl) {
 		else if (strcmp(str[0], "f") == 0) {
 			//頂点と法線の番号作成
 			int v[3], n[3];
-			//頂点と法線の番号取得
-			sscanf(str[1], "%d//%d", &v[0], &n[0]);
-			sscanf(str[2], "%d//%d", &v[1], &n[1]);
-			sscanf(str[3], "%d//%d", &v[2], &n[2]);
-			//三角形作成
-			CTriangle t;
-			t.Vertex(vertex[v[0] - 1], vertex[v[1] - 1], vertex[v[2] - 1]);
-			t.Normal(normal[n[0] - 1], normal[n[1] - 1], normal[n[2] - 1]);
-			//マテリアル番号の設定
-			t.MaterialIdx(idx);
-			//可変長配列mTrianglesに三角形を追加
-			mTriangles.push_back(t);
+			//テクスチャマッピングの有無を判定
+			if (strstr(str[1], "//")) { //頂点と法線の番号取得
+				sscanf(str[1], "%d//%d", &v[0], &n[0]);
+				sscanf(str[2], "%d//%d", &v[1], &n[1]);
+				sscanf(str[3], "%d//%d", &v[2], &n[2]);
+				//三角形作成
+				CTriangle t;
+				t.Vertex(vertex[v[0] - 1], vertex[v[1] - 1], vertex[v[2] - 1]);
+				t.Normal(normal[n[0] - 1], normal[n[1] - 1], normal[n[2] - 1]);
+				//マテリアル番号の設定
+				t.MaterialIdx(idx);
+				//可変長配列mTrianglesに三角形を追加
+				mTriangles.push_back(t);
+			}
+			else {
+				//テクスチャマッピング有り
+				int u[3]; //テクスチャマッピングの番号
+				//頂点と法線の番号取得とマッピングの番号取得
+				sscanf(str[1], "%d/%d/%d", &v[0], &u[0], &n[0]);
+				sscanf(str[2], "%d/%d/%d", &v[1], &u[1], &n[1]);
+				sscanf(str[3], "%d/%d/%d", &v[2], &u[2], &n[2]);
+				//三角形作成
+				CTriangle t;
+				t.Vertex(vertex[v[0] - 1], vertex[v[1] - 1], vertex[v[2] - 1]);
+				t.Normal(normal[n[0] - 1], normal[n[1] - 1], normal[n[2] - 1]);
+				//テクスチャマッピングの設定
+				t.UV(uv[u[0] - 1], uv[u[1] - 1], uv[u[2] - 1]);
+				//マテリアル番号の設定
+				t.MaterialIdx(idx);
+				//可変長配列mTrianglesに三角形を追加
+				mTriangles.push_back(t);
+			}
 		}
-		//先頭がsemtlの時,マテリアルインデックスを取得する
+		//先頭がusemtlの時,マテリアルインデックスをw取得する
 		else if (strcmp(str[0], "usemtl") == 0) {
 			//可変長配列を後から比較
 			for (idx = mpMaterials.size() - 1; idx > 0; idx--) {
@@ -138,6 +166,12 @@ void CModel::Load(char* obj, char* mtl) {
 					break; //ループから出る
 				}
 			}
+		}
+		//先頭がvtの時,uvに追加する
+		else if (strcmp(str[0], "vt") == 0) {
+			//可変長配列uvに追加
+			//atof(文字列) 文字列からfloat型の値を返す
+			uv.push_back(CVector(atof(str[1]), atof(str[2]), 0.0));
 		}
 	}
 
@@ -153,12 +187,14 @@ void CModel::Render() {
 		mpMaterials[mTriangles[i].MaterialIdx()]->Enabled();
 		//可変長配列に添え字でアクセスする
 		mTriangles[i].Render();
+		//マテリアルを無効
+		mpMaterials[mTriangles[i].MaterialIdx()]->Disabled();
 	}
 }
 
 CModel::~CModel()
 {
-	for (int i = 0; 1 < mpMaterials.size(); i++)
+	for (int i = 0; i < mpMaterials.size(); i++)
 	{
 		delete mpMaterials[i];
 	}
