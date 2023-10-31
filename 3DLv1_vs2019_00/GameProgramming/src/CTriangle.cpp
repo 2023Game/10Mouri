@@ -44,7 +44,7 @@ int CTriangle::MaterialIdx()
 
 void CTriangle::MaterialIdx(int idx)
 {
-	mMaterialIdx = 0;
+	mMaterialIdx = idx;
 }
 
 void CTriangle::UV(const CVector& v0, const CVector& v1, const CVector& v2)
