@@ -4,6 +4,7 @@
 #include "CRectangle.h"
 #include "CVector.h"
 #include "CTriangle.h"
+#include "CMatrix.h"
 //モデルデータの指定
 #define MODEL_OBJ "res\\f14.obj","res\\f14.mtl"
 //背景モデルデータの指定
@@ -34,6 +35,8 @@ void CApplication::Start()
 	//モデルファイルの入力
 	mModel.Load(MODEL_OBJ);
 	mBackGround.Load(MODEL_BACKGROUND);
+	CMatrix matrix;
+	matrix.Print();
 }
 
 void CApplication::Update()
