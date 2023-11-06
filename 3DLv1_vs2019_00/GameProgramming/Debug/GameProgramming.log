@@ -1,2 +1,5 @@
 ﻿  CMatrix.cpp
-  GameProgramming.vcxproj -> C:\Users\user\Desktop\Mouri\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe
+LINK : warning LNK4098: defaultlib 'MSVCRT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
+LINK : warning LNK4098: defaultlib 'LIBCMT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
+CVector.obj : error LNK2019: 未解決の外部シンボル "public: float __thiscall CMatrix::M(int,int)const " (?M@CMatrix@@QBEMHH@Z) が関数 "public: class CVector __thiscall CVector::operator*(class CMatrix const &)" (??DCVector@@QAE?AV0@ABVCMatrix@@@Z) で参照されました
+C:\Users\user\Desktop\Mouri\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe : fatal error LNK1120: 1 件の未解決の外部参照

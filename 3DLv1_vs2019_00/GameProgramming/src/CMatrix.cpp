@@ -27,3 +27,10 @@ CMatrix CMatrix::Identity() {
 	//‚±‚Ìs—ñ‚ğ•Ô‚·
 	return *this;
 }
+
+//Šg‘åk¬s—ñ‚Ìì¬
+//Scale(”{—¦X,”{—¦Y,”{—¦Z)
+CMatrix CMatrix::Scale(float sx, float sy, float sz) {
+	//‚±‚Ìs—ñ‚ğ•Ô‚·
+	return *this;
+}
