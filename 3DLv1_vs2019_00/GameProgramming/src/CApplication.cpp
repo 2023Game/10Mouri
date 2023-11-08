@@ -4,6 +4,7 @@
 #include "CRectangle.h"
 #include "CVector.h"
 #include "CTriangle.h"
+#include "CMatrix.h"
 //モデルデータの指定
 #define MODEL_OBJ "res\\f14.obj","res\\f14.mtl"
 //背景モデルデータの指定
@@ -37,6 +38,9 @@ void CApplication::Start()
 	mEye = CVector(1.0f, 2.0f, 3.0f);
 	//モデルファイルの入力
 	mModel.Load(MODEL_OBJ);
+	mBackGround.Load(MODEL_BACKGROUND);
+	CMatrix matrix;
+	matrix.Print();
 }
 
 void CApplication::Update()
@@ -80,6 +84,12 @@ void CApplication::Update()
 	//gluLookAt(視点X,視点Y,視点Z,中心X,中心Y,中心Z,上向X,上向Y,上向Z)              
 	gluLookAt(mEye.X(), mEye.Y(), mEye.Z(), 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
+<<<<<<< HEAD
 	mModel.Render(CMatrix().Scale(0.1f,0.1f,0.1f));
 	mBackGround.Render();
+=======
+	mModel.Render();
+	mBackGround.Render();
+	mModel.Render(CMatrix().Scale(0.1f, 0.1f, 0.1f));
+>>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 }
