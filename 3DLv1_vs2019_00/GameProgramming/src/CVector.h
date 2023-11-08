@@ -1,12 +1,16 @@
 #pragma once
 #ifndef CVECTOR_H
 #define CVECTOR_H
+#include "CMatrix.h"
+
 /*
 ベクトルクラス
 ベクトルデータを扱います
 */
 class CVector {
 public:
+	//CVector * CMatrixの結果をCVectorで返す
+	CVector operator*(const CMatrix& m);
 	//-演算子のオーバーロード
 	//CVector - CVectorの演算結果を返す
 	CVector operator-(const CVector& v)const;
