@@ -63,7 +63,7 @@ void CModel::Load(char* obj, char* mtl) {
 		char str[4][64] = { "","","","" };
 		//•¶š—ñ‚©‚çƒf[ƒ^‚ğ4‚Â•Ï”‚Ö‘ã“ü‚·‚é
 <<<<<<< HEAD
-		sscanf(buf, "%s, %s,%s,%s", str[0], str[1], str[2], str[3]);
+		sscanf(buf, "%s %s %s %s", str[0], str[1], str[2], str[3]);
 =======
 		sscanf(buf, "%s %s %s %s", str[0], str[1], str[2], str[3]);
 >>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
