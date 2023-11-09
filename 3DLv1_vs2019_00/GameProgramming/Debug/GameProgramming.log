@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿  CApplication.cpp
   CBlock.cpp
   CBullet.cpp
@@ -12,13 +11,13 @@
   CMaterial.cpp
   CMatrix.cpp
   CModel.cpp
-C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(194,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(206,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(217,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\Takahashi\Desktop\Git\2023Game\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(194,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\Takahashi\Desktop\Git\2023Game\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(206,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\Takahashi\Desktop\Git\2023Game\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(217,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
   CPlayer.cpp
   CPlayer2.cpp
-C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CPlayer2.cpp(12,1): warning C4005: 'VELOCITY': マクロが再定義されました。
-C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CCharacter.h(6): message : 'VELOCITY' の以前の定義を確認してください
+C:\Users\Takahashi\Desktop\Git\2023Game\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CPlayer2.cpp(12,1): warning C4005: 'VELOCITY': マクロが再定義されました。
+C:\Users\Takahashi\Desktop\Git\2023Game\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CCharacter.h(6): message : 'VELOCITY' の以前の定義を確認してください
   CPoint.cpp
   CRectangle.cpp
   CSound.cpp
@@ -31,13 +30,7 @@ C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CCharact
   CVector.cpp
   main.cpp
   コードを生成中...
+  LINK : 前回のインクリメンタル リンクで C:\Users\Takahashi\Desktop\Git\2023Game\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
 LINK : warning LNK4098: defaultlib 'MSVCRT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
 LINK : warning LNK4098: defaultlib 'LIBCMT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
-  GameProgramming.vcxproj -> C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe
-=======
-﻿  CMatrix.cpp
-LINK : warning LNK4098: defaultlib 'MSVCRT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
-LINK : warning LNK4098: defaultlib 'LIBCMT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
-CVector.obj : error LNK2019: 未解決の外部シンボル "public: float __thiscall CMatrix::M(int,int)const " (?M@CMatrix@@QBEMHH@Z) が関数 "public: class CVector __thiscall CVector::operator*(class CMatrix const &)" (??DCVector@@QAE?AV0@ABVCMatrix@@@Z) で参照されました
-C:\Users\user\Desktop\Mouri\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe : fatal error LNK1120: 1 件の未解決の外部参照
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
+  GameProgramming.vcxproj -> C:\Users\Takahashi\Desktop\Git\2023Game\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe

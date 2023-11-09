@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 #ifndef CMATERIAL_H
 #define CMATERIAL_H
@@ -39,42 +38,4 @@ private:
 	float mDiffuse[4];
 };
 
-=======
-#pragma once
-#ifndef CMATERIAL_H
-#define CMATERiAL_H
-#define MATERIAL_NAME_LEN 64 //名前の長さ
-#include "CTexture.h"
-
-/*
-マテリアルクラス
-マテリアルのデータを扱う
-*/
-class CMaterial {
-public:
-	//テクスチャの取得
-	CTexture* Texture();
-	//マテリアルを無効にする
-	void Disabled();
-	//デフォルトコンストラクタ
-	CMaterial();
-	//マテリアルを有効にする
-	void Enabled();
-	//マテリアルの名前の取得
-	char* Name();
-	//マテリアルの名前を設定する
-	//Name(マテリアルの名前)
-	void Name(char* name);
-	//mDiffuse配列の取得
-	float* Diffuse();
-private:
-	//テクスチャ
-	CTexture mTexture;
-	//マテリアル名
-	char mName[MATERIAL_NAME_LEN + 1];
-	//拡散光の色RGBA
-	float mDiffuse[4];
-};
-
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 #endif

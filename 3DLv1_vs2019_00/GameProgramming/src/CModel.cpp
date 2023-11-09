@@ -7,7 +7,7 @@
 //文字列s1と文字列s2の比較
 //s1とs2が等しければ0を
 //等しくなければ0以外を返す
-int strcmp(const char* s1 , const char* s2)
+int strcmp(const char* s1, const char* s2)
 {
 	int i = 0;
 	//文字が同じ間は繰り返し
@@ -33,11 +33,7 @@ void CModel::Load(char* obj, char* mtl) {
 	//法線ベクトル(CVector型)の可変長配列(std::vector)normal
 	std::vector<CVector>normal;
 	//テクスチャマッピングの保存(CVector型)
-<<<<<<< HEAD
 	std::vector<CVector>uv;
-=======
-	std::vector<CVector> uv;
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 	//入力エリアを作成する
 	char buf[256];
 
@@ -62,30 +58,18 @@ void CModel::Load(char* obj, char* mtl) {
 		//データを分割する
 		char str[4][64] = { "","","","" };
 		//文字列からデータを4つ変数へ代入する
-<<<<<<< HEAD
-		sscanf(buf, "%s %s %s %s", str[0], str[1], str[2], str[3]);
-=======
-		sscanf(buf, "%s %s %s %s", str[0], str[1], str[2], str[3]);
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
+		sscanf(buf, "%s, %s,%s,%s", str[0], str[1], str[2], str[3]);
 		//先頭がnewmtlの時,マテリアルを追加する
 		if (strcmp(str[0], "newmtl") == 0) {
 			CMaterial* pm = new CMaterial();
 			//マテリアル名の設定
 			pm->Name(str[1]);
-<<<<<<< HEAD
 			//マテリアルの変数長配列に追加
-=======
-			//マテリアルの可変長配列に追加
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 			mpMaterials.push_back(pm);
 			//配列の長さを取得
 			idx = mpMaterials.size() - 1;
 		}
-<<<<<<< HEAD
 		//先頭がKdの時,Diffuseを設定する
-=======
-		//先頭がKdの時,Diffuseを獲得する
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 		else if (strcmp(str[0], "Kd") == 0) {
 			mpMaterials[idx]->Diffuse()[0] = atof(str[1]);
 			mpMaterials[idx]->Diffuse()[1] = atof(str[2]);
@@ -141,11 +125,7 @@ void CModel::Load(char* obj, char* mtl) {
 			//頂点と法線の番号作成
 			int v[3], n[3];
 			//テクスチャマッピングの有無を判定
-<<<<<<< HEAD
 			if (strstr(str[1], "//")) {	//頂点と法線の番号取得
-=======
-			if (strstr(str[1], "//")) { //頂点と法線の番号取得
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 				sscanf(str[1], "%d//%d", &v[0], &n[0]);
 				sscanf(str[2], "%d//%d", &v[1], &n[1]);
 				sscanf(str[3], "%d//%d", &v[2], &n[2]);
@@ -161,11 +141,7 @@ void CModel::Load(char* obj, char* mtl) {
 			else {
 				//テクスチャマッピング有り
 				int u[3]; //テクスチャマッピングの番号
-<<<<<<< HEAD
 				//頂点と法線の番号取得とマッピングの番号
-=======
-				//頂点と法線の番号取得とマッピングの番号取得
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 				sscanf(str[1], "%d/%d/%d", &v[0], &u[0], &n[0]);
 				sscanf(str[2], "%d/%d/%d", &v[1], &u[1], &n[1]);
 				sscanf(str[3], "%d/%d/%d", &v[2], &u[2], &n[2]);
@@ -181,7 +157,6 @@ void CModel::Load(char* obj, char* mtl) {
 				mTriangles.push_back(t);
 			}
 		}
-<<<<<<< HEAD
 		//先頭がKdの時,Diffuseを設定する
 		else if (strcmp(str[0], "Kd") == 0) {
 			mpMaterials[idx]->Diffuse()[0] = atof(str[1]);
@@ -193,9 +168,6 @@ void CModel::Load(char* obj, char* mtl) {
 			mpMaterials[idx]->Diffuse()[3] = atof(str[1]);
 		}
 		//先頭がusemtlの時,マテリアルインデックスを取得する
-=======
-		//先頭がsemtlの時,マテリアルインデックスを取得する
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 		else if (strcmp(str[0], "usemtl") == 0) {
 			//可変長配列を後から比較
 			for (idx = mpMaterials.size() - 1; idx > 0; idx--) {
@@ -205,17 +177,10 @@ void CModel::Load(char* obj, char* mtl) {
 				}
 			}
 		}
-<<<<<<< HEAD
 		//先頭がutの時,uvに追加する
 		else if (strcmp(str[0], "vt") == 0) {
 			//可変長配列uvに追加
 			//atof(文字列) 文字列からfloat型の麻値を返す
-=======
-		//先頭がvtの時,uvに追加する
-		else if (strcmp(str[0], "vt") == 0) {
-			//可変長配列uvに追加
-			//atof(文字列) 文字列からfloat型の値を返す
->>>>>>> d164ea01132d274418f6de3275384a3b82bdaf2d
 			uv.push_back(CVector(atof(str[1]), atof(str[2]), 0.0));
 		}
 	}
