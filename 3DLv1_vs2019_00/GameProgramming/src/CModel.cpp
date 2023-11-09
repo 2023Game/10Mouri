@@ -58,7 +58,7 @@ void CModel::Load(char* obj, char* mtl) {
 		//データを分割する
 		char str[4][64] = { "","","","" };
 		//文字列からデータを4つ変数へ代入する
-		sscanf(buf, "%s, %s,%s,%s", str[0], str[1], str[2], str[3]);
+		sscanf(buf, "%s %s %s %s", str[0], str[1], str[2], str[3]);
 		//先頭がnewmtlの時,マテリアルを追加する
 		if (strcmp(str[0], "newmtl") == 0) {
 			CMaterial* pm = new CMaterial();
