@@ -10,7 +10,7 @@
 class CVector {
 public:
 	//CVector * CMatrixの結果をCVectorで返す
-	CVector operator*(const CMatrix& m);
+	CVector operator*(const CMatrix &m);
 	//-演算子のオーバーロード
 	//CVector - CVectorの演算結果を返す
 	CVector operator-(const CVector& v)const;
