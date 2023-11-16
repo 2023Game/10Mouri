@@ -10,6 +10,11 @@
 */
 class CMaterial {
 public:
+	//頂点数の設定
+	//VertexNum(頂点数)
+	void VertexNum(int num);
+	//頂点数の獲得
+	int VertexNum();
 	//行列値の取得
 	//M(行,列)
 	//mM[行][列]を取得
@@ -30,6 +35,8 @@ public:
 	//mDiffuse配列の取得
 	float* Diffuse();
 private:
+	//マテリアル毎の頂点数
+	int mVertexNum;
 	//テクスチャ
 	CTexture mTexture;
 	//マテリアル名
