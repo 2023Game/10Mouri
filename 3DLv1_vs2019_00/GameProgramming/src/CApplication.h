@@ -20,14 +20,13 @@ class CApplication
 {
 private:
 	CPlayer mPlayer;
-	CCharacter3 mCharacter;
 	CModel mBackGround; //背景モデル
 	//モデルクラスのインスタンス作成
+	CVector mEye;
 	CModel mModel;
 	CSound mSoundBgm;	//BGM
 	CSound mSoundOver;	//ゲームオーバー
 	CGame* mpGame;
-	static CCharacterManager mCharacterManager;
 	enum class EState
 	{
 		ESTART,	//ゲーム開始
@@ -47,7 +46,6 @@ private:
 	//CCharacterのポインタの可変長配列
 //	std::vector<CCharacter*> mCharacters;
 public:
-	static CCharacterManager* CharacterManager();
 	static CTexture* Texture();
 	//最初に一度だけ実行するプログラム
 	void Start();
