@@ -19,6 +19,7 @@
 class CApplication
 {
 private:
+	static CCharacterManager mCharacterManager;
 	CPlayer mPlayer;
 	CModel mBackGround; //背景モデル
 	//モデルクラスのインスタンス作成
@@ -44,8 +45,9 @@ private:
 	CFont mFont;
 	CMiss* mpMiss;
 	//CCharacterのポインタの可変長配列
-//	std::vector<CCharacter*> mCharacters;
+	std::vector<CCharacter*> mCharacters;
 public:
+	static CCharacterManager* CharacterManager();
 	static CTexture* Texture();
 	//最初に一度だけ実行するプログラム
 	void Start();

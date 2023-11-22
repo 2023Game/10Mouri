@@ -86,3 +86,9 @@ void CApplication::Update()
 	mPlayer.Render();
 	mBackGround.Render();
 }
+
+CCharacterManager CApplication::mCharacterManager;
+CCharacterManager* CApplication::CharacterManager()
+{
+	return &mCharacterManager;
+}
