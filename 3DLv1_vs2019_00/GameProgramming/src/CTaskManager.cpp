@@ -9,7 +9,8 @@ CTaskManager::~CTaskManager() {
 }
 //リストに追加
 //Add(タスクのポインタ)
-void CTaskManager::Add(CTask* addtask) {
+void CTaskManager::Add(CTask* addTask)
+{
 	//mTailの前に追加
 	CTask* task = &mTail;
 	//addTaskの次をtask

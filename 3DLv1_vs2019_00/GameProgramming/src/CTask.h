@@ -11,7 +11,7 @@ class CTask {
 public:
 	//デフォルトコンストラクタ
 	CTask()
-		: mpNext(nullptr),mpPrev(nullptr),mPriority(0),mEnabled(true)
+	: mpNext(nullptr),mpPrev(nullptr),mPriority(0),mEnabled(true)
 	{}
 	//デストラクタ virtualにしないと子クラスのデストラクタが呼ばれない
 	virtual ~CTask() {}

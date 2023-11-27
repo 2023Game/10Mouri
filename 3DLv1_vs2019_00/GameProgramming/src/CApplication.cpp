@@ -88,7 +88,7 @@ void CApplication::Update()
 	//タスクマネージャの更新
 	mTaskManager.Update();
 	//タスクマネージャの描画
-	mTaskManager.Render.Render();
+	mTaskManager.Render();
 }
 
 CCharacterManager CApplication::mCharacterManager;
@@ -97,7 +97,7 @@ CCharacterManager* CApplication::CharacterManager()
 	return &mCharacterManager;
 }
 
-CTaskManager CApplication::TaskManager;
+CTaskManager CApplication::mTaskManager;
 CTaskManager* CApplication::TaskManager()
 {
 	return &mTaskManager;

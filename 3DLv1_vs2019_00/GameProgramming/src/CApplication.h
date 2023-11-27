@@ -10,12 +10,11 @@
 #include "CMiss.h"
 #include <vector>
 #include "CCharacterManager.h"
-
 #include "CGame.h"
 #include "CSound.h"
 #include "CModel.h"
 #include "CCharacter3.h"
-#include "CTaskManager,h"
+#include "CTaskManager.h"
 
 class CApplication
 {

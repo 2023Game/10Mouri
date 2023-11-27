@@ -1,6 +1,7 @@
 //プレイヤークラスのインクルード
 #include "CPlayer.h"
 #include "CTaskManager.h"
+#include "CApplication.h"
 
 #define ROTATION_YV CVector(0.0f,1.0f,0.0f) //回転速度
 #define VELOCITY CVector(0.0f,0.0f,0.1f) //移動速度
