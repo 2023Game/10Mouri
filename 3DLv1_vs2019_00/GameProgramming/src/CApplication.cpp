@@ -108,4 +108,3 @@ CCharacterManager* CApplication::CharacterManager()
 {
 	return &mCharacterManager;
 }
-
