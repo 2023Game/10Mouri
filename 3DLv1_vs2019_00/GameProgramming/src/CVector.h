@@ -9,6 +9,8 @@
 */
 class CVector {
 public:
+	//ベクトルの長さを返す
+	float Lenght() const;
 	//CVector * CMatrixの結果をCVectorで返す
 	CVector operator*(const CMatrix &m);
 	//-演算子のオーバーロード
