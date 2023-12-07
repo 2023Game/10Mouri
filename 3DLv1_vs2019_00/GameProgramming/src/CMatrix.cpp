@@ -136,3 +136,18 @@ float* CMatrix::M() const
 {
 	return (float*)mM[0];
 }
+
+CMatrix CMatrix::Transpose() const
+{
+	CMatrix Transpose;
+	Transpose.mM[0][0] = mM[0][0];
+	Transpose.mM[0][1] = mM[1][0];
+	Transpose.mM[0][2] = mM[2][0];
+    Transpose.mM[1][0] = mM[0][1];
+	Transpose.mM[1][1] = mM[1][1];
+	Transpose.mM[1][2] = mM[2][1];
+	Transpose.mM[2][0] = mM[0][2];
+	Transpose.mM[2][1] = mM[1][2];
+	Transpose.mM[2][2] = mM[2][2];
+	return Transpose;
+}

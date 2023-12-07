@@ -1,6 +1,5 @@
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\vc142.pdb
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\vc142.idb
-c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\crectangle.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cpoint.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cplayer2.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cplayer.obj
@@ -19,6 +18,7 @@ c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cchara
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ccamera.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cbullet.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cblock.obj
+c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cbillboard.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\capplication.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\main.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cvector.obj
@@ -29,6 +29,7 @@ c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cinput
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ctexture.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ctaskmanager.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\csound.obj
+c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\crectangle.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\debug\gameprogramming.exe
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\debug\gameprogramming.ilk
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\debug\gameprogramming.pdb

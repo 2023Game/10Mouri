@@ -19,6 +19,8 @@
 class CApplication
 {
 private:
+	//モデルビューの逆行列
+	static CMatrix mModelViewInverse;
 	//C5モデル
 	CModel mModelC5;
 	static CCharacterManager mCharacterManager;
@@ -49,6 +51,8 @@ private:
 	//CCharacterのポインタの可変長配列
 	std::vector<CCharacter*> mCharacters;
 public:
+	//モデルビュー行列の取得
+	static const CMatrix& ModelViewInverse();
 	static CCharacterManager* CharacterManager();
 	static CTexture* Texture();
 	//最初に一度だけ実行するプログラム
