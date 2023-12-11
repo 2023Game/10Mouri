@@ -1,6 +1,5 @@
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\vc142.pdb
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\vc142.idb
-c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cpoint.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cplayer2.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cplayer.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cmodel.obj
@@ -10,6 +9,7 @@ c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cgame.
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cfont.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cenemy2.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cenemy.obj
+c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ceffect.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ccollisionmanager.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ccollider.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ccharactermanager.obj
@@ -30,6 +30,7 @@ c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ctextu
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\ctaskmanager.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\csound.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\crectangle.obj
+c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\gameprogramming\debug\cpoint.obj
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\debug\gameprogramming.exe
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\debug\gameprogramming.ilk
 c:\users\mm1022\desktop\bit\10mouri\3dlv1_vs2019_00\debug\gameprogramming.pdb

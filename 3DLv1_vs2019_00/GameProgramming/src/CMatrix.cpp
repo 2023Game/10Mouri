@@ -143,11 +143,18 @@ CMatrix CMatrix::Transpose() const
 	Transpose.mM[0][0] = mM[0][0];
 	Transpose.mM[0][1] = mM[1][0];
 	Transpose.mM[0][2] = mM[2][0];
+	Transpose.mM[0][3] = mM[3][0];
     Transpose.mM[1][0] = mM[0][1];
 	Transpose.mM[1][1] = mM[1][1];
 	Transpose.mM[1][2] = mM[2][1];
+	Transpose.mM[1][3] = mM[3][1];
 	Transpose.mM[2][0] = mM[0][2];
 	Transpose.mM[2][1] = mM[1][2];
 	Transpose.mM[2][2] = mM[2][2];
+	Transpose.mM[2][3] = mM[3][2];
+	Transpose.mM[3][0] = mM[0][3];
+	Transpose.mM[3][1] = mM[1][3];
+	Transpose.mM[3][2] = mM[2][3];
+	Transpose.mM[3][3] = mM[3][3];
 	return Transpose;
 }
