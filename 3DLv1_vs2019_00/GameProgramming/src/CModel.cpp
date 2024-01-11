@@ -279,7 +279,7 @@ void CModel::CreateVertexBuffer()
 	}
 }
 
-std::vector<CTriangle> CModel::Triangles() const
+const std::vector<CTriangle>& CModel::Triangles() const
 {
 	return mTriangles;
 }

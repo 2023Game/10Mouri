@@ -20,7 +20,7 @@ private:
 	//三角形の可変長配列
 	std::vector<CTriangle> mTriangles;
 public:
-	std::vector<CTriangle> Triangles() const;
+	const std::vector<CTriangle>& Triangles() const;
 	//描画
 	//Render(行列)
 	void Render(const CMatrix& m);
