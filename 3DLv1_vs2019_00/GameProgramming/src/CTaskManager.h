@@ -28,7 +28,7 @@ public:
 	//描画
 	void Render();
 	//衝突処理
-	virtual void Collision() {}
+	virtual void Collision();
 protected:
 	//デフォルトコンストラクタ
 	CTaskManager();
