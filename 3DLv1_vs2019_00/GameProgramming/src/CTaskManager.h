@@ -3,6 +3,7 @@
 #define CTASKMANAGER_H
 //タスククラスのインクルード
 #include "CTask.h"
+#include "CTaskManager.h"
 
 /*
 タスクマネージャ
@@ -26,6 +27,8 @@ public:
 	void Update();
 	//描画
 	void Render();
+	//衝突処理
+	virtual void Collision() {}
 protected:
 	//デフォルトコンストラクタ
 	CTaskManager();

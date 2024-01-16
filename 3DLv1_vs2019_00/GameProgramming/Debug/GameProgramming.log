@@ -1,2 +1,5 @@
 ﻿  CTaskManager.cpp
-  GameProgramming.vcxproj -> C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe
+C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CTaskManager.cpp(94,1): error C2084: 関数 'void CTaskManager::Collision(void)' は既に本体を持っています。
+C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CTaskManager.h(31): message : 'Collision' の以前の定義を確認してください
+  main.cpp
+  コードを生成中...

@@ -4,12 +4,15 @@
 //キャラクタクラスのインクルード
 #include "CCharacter3.h"
 #include "CCollider.h"
+#include "CColliderLine.h"
 /*
 エネミークラス
 キャラクタクラスを継続
 */
 class CEnemy : public CCharacter3 {
 public:
+	//衝突処理
+	void Collision();
 	//衝突処理
 	//Collision(コライダ1,コライダ2)
 	void Collision(CCollider* m, CCollider* o);
@@ -20,6 +23,9 @@ public:
 	//更新処理
 	void Update();
 private:
+	CColliderLine mLine;
+	CColliderLine mLine2;
+	CColliderLine mLine3;
 	//コライダ
 	CCollider mCollider1;
 	CCollider mCollider2;
