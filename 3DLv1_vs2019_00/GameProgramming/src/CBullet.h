@@ -28,9 +28,6 @@ public:
 	//•`‰æ
 	void Render();
 private:
-	CColliderLine mLine;
-	CColliderLine mLine2;
-	CColliderLine mLine3;
 	CCollider mCollider;
 	//¶‘¶ŠÔ
 	int mLife;

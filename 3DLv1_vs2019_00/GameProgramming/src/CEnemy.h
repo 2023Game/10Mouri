@@ -23,9 +23,6 @@ public:
 	//更新処理
 	void Update();
 private:
-	CColliderLine mLine;
-	CColliderLine mLine2;
-	CColliderLine mLine3;
 	//コライダ
 	CCollider mCollider1;
 	CCollider mCollider2;

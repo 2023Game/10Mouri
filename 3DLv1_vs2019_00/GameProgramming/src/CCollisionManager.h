@@ -1,8 +1,8 @@
 #pragma once
 #ifndef CCOLLISIONMANAGER_H
 #define CCOLLISIONMANAGER_H
-#define COLLISIONRANGE 30
 //Õ“Ëˆ—”ÍˆÍ‚æ‚è—£‚ê‚Ä‚¢‚éƒRƒ‰ƒCƒ_‚ÍÕ“Ëˆ—‚µ‚È‚¢
+#define COLLISIONRANGE 30
 
 #include "CTaskManager.h"
 #include "CCollider.h"

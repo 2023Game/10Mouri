@@ -51,14 +51,11 @@ void CBullet::Collision(CCollider* m, CCollider* o) {
 	}
 }
 
+//衝突処理
 void CBullet::Collision()
 {
 	//コライダの優先度変更
-	mLine.ChangePriority();
-	mLine2.ChangePriority();
-	mLine3.ChangePriority();
+	mCollider.ChangePriority();
 	//衝突処理を実行
-	CCollisionManager::Instance()->Collision(&mLine, COLLISIONRANGE);
-	CCollisionManager::Instance()->Collision(&mLine2, COLLISIONRANGE);
-	CCollisionManager::Instance()->Collision(&mLine3, COLLISIONRANGE);
+	CCollisionManager::Instance()->Collision(&mCollider, COLLISIONRANGE);
 }
