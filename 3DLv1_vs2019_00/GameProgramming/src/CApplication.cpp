@@ -19,6 +19,7 @@ CTexture CApplication::mTexture;
 #include "CTaskManager.h"
 #include "CCollisionManager.h"
 #include "CBillBoard.h"
+#include "CUi.h"
 
 CTexture* CApplication::Texture()
 {
@@ -50,6 +51,7 @@ void CApplication::Start()
 	//背景モデルから三角コライダを生成
 	//親インスタンスと親行列はなし
 	mColliderMesh.Set(nullptr, nullptr, &mBackGround);
+	spUi = new CUi(); //UIクラスの生成
 }
 
 void CApplication::Update()
@@ -118,6 +120,7 @@ void CApplication::Update()
 	//タスクマネージャの描画
 	CTaskManager::Instance()->Render();
 	CCollisionManager::Instance()->Render();
+	spUi->Render(); //UIの描画
 }
 
 CCharacterManager CApplication::mCharacterManager;
@@ -131,4 +134,16 @@ CMatrix CApplication::mModelViewInverse;
 const CMatrix& CApplication::ModelViewInverse()
 {
 	return mModelViewInverse;
+}
+
+CUi* CApplication::spUi = nullptr;
+
+CUi* CApplication::Ui()
+{
+	return spUi; //インスタンス
+}
+
+CApplication::~CApplication()
+{
+	delete spUi; //インスタンスUiの削除
 }
