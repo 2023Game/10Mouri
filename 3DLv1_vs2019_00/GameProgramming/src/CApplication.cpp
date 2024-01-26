@@ -20,6 +20,7 @@ CTexture CApplication::mTexture;
 #include "CCollisionManager.h"
 #include "CBillBoard.h"
 #include "CUi.h"
+#include "CEnemy3.h"
 
 CTexture* CApplication::Texture()
 {
@@ -52,6 +53,8 @@ void CApplication::Start()
 	//親インスタンスと親行列はなし
 	mColliderMesh.Set(nullptr, nullptr, &mBackGround);
 	spUi = new CUi(); //UIクラスの生成
+	new CEnemy3(CVector(-5.0f, 1.0f, -10.0f), CVector(), CVector(0.1f, 0.1f, 0.1f));
+	new CEnemy3(CVector(5.0f, 1.0f, -10.0f), CVector(), CVector(0.1f, 0.1f, 0.1f));
 }
 
 void CApplication::Update()
