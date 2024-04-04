@@ -47,6 +47,7 @@ void CEnemy3::Update()
 		float dx = vp.Dot(mMatrixRotate.VectorX());
 		//上ベクトルとの内積を求める
 		float dy = vp.Dot(mMatrixRotate.VectorY());
+		float dz = vp.Dot(mMatrixRotate.VectorZ());
 
 		//X軸のズレが2.0以下
 		if (-2.0f < dx && dx < 2.0f)

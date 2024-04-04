@@ -5,6 +5,7 @@
 マトリクスクラス
 4行4列の行列データを扱います
 */
+class CVector;
 class CMatrix {
 public:
 	CVector VectorZ() const; //Z軸ベクトルの取得
