@@ -1,22 +1,18 @@
 #pragma once
-#include "CRectangle.h"
 #include "CTexture.h"
-#include "CCharacter.h"
 #include "CBullet.h"
 #include "CEnemy.h"
 #include "CPlayer.h"
 #include "CInput.h"
 #include "CFont.h"
-#include "CMiss.h"
 #include <vector>
-#include "CCharacterManager.h"
-#include "CGame.h"
 #include "CSound.h"
 #include "CModel.h"
 #include "CCharacter3.h"
 #include "CTaskManager.h"
 #include "CColliderTriangle.h"
 #include "CColliderMesh.h"
+#include "CUi.h"
 
 class CApplication
 {
@@ -32,7 +28,6 @@ private:
 	static CMatrix mModelViewInverse;
 	//C5モデル
 	CModel mModelC5;
-	static CCharacterManager mCharacterManager;
 	CPlayer mPlayer;
 	CModel mBackGround; //背景モデル
 	//モデルクラスのインスタンス作成
@@ -40,7 +35,6 @@ private:
 	CModel mModel;
 	CSound mSoundBgm;	//BGM
 	CSound mSoundOver;	//ゲームオーバー
-	CGame* mpGame;
 	enum class EState
 	{
 		ESTART,	//ゲーム開始
@@ -56,15 +50,11 @@ private:
 //	CBullet* mpBullet;
 	CInput mInput;
 	CFont mFont;
-	CMiss* mpMiss;
-	//CCharacterのポインタの可変長配列
-	std::vector<CCharacter*> mCharacters;
 public:
 	~CApplication();
 	static CUi* Ui(); //UIクラスのインスタンスを取得
 	//モデルビュー行列の取得
 	static const CMatrix& ModelViewInverse();
-	static CCharacterManager* CharacterManager();
 	static CTexture* Texture();
 	//最初に一度だけ実行するプログラム
 	void Start();
