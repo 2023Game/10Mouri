@@ -8,6 +8,7 @@
 #include <vector>
 #include "CSound.h"
 #include "CModel.h"
+#include "CModelX.h"
 #include "CCharacter3.h"
 #include "CTaskManager.h"
 #include "CColliderTriangle.h"
@@ -17,6 +18,7 @@
 class CApplication
 {
 private:
+	CModelX mModelX;
 	static CUi* spUi; //UIクラスのポインタ
 	//モデルからコライダを生成
 	CColliderMesh mColliderMesh;
