@@ -185,7 +185,7 @@ CModelXFrame::CModelXFrame(CModelX* model)
         //}かっこの場合は終了
         if (strchr(model->mToken, '}')) break;
         //新なフレームの場合は,子フレームに追加
-        if (strcmp) {
+        if (strcmp(model->mToken,"Frame") == 0) {
             //フレームを作成し,子フレームに追加
             mChild.push_back(
                 new CModelXFrame(model));
