@@ -124,6 +124,10 @@ CModelXFrame::~CModelXFrame()
     }
     //名前のエリアを解放する
     SAFE_DELETE_ARRAY(mpName);
+    if (mpMesh != nullptr)
+    {
+        delete mpMesh;
+    }
 }
 
 CModelX::~CModelX()
@@ -248,10 +252,6 @@ CModelXFrame::CModelXFrame(CModelX* model)
         else {
             //上記以外の要素は読み飛ばす
             model->SkipNode();
-        }
-        if (mpMesh != nullptr)
-        {
-            delete mpMesh;
         }
     }
 //デバッグバージョンのみ有効
