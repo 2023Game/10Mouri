@@ -169,11 +169,14 @@ CMesh::CMesh()
     , mpVertex(nullptr)
     , mFaceNum(0)
     , mpVertexIndex(nullptr)
+    , mNormalNum(0)
+    , mpNormal(nullptr)
 {}
 //デストラクタ
 CMesh::~CMesh() {
     SAFE_DELETE_ARRAY(mpVertex);
     SAFE_DELETE_ARRAY(mpVertexIndex);
+    SAFE_DELETE_ARRAY(mpNormal);
 }
 /*
 Init
@@ -206,6 +209,37 @@ void CMesh::Init(CModelX* model) {
         mpVertexIndex[i + 1] = atoi(model->GetToken());
         mpVertexIndex[i + 2] = atoi(model->GetToken());
     }
+    model->GetToken(); //MeshNormals
+    if (strcmp(model->Token(), "MeshNormals") == 0) {
+        model->GetToken(); // {
+        //法線データ数を取得
+        mNormalNum = atoi(model->GetToken());
+        //法線のデータを配列に取り込む
+        CVector* pNormal = new CVector[mNormalNum];
+        for (int i = 0; i < mNormalNum; i++) {
+            pNormal[i].X(atof(model->GetToken()));
+            pNormal[i].Y(atof(model->GetToken()));
+            pNormal[i].Z(atof(model->GetToken()));
+        }
+        //法線数=面数×3
+        mNormalNum = atoi(model->GetToken()) * 3; //FaceNum
+        int ni;
+        //頂点毎に法線データを設定する
+        mpNormal = new CVector[mNormalNum];
+        for (int i = 0; i < mNormalNum; i += 3) {
+            model->GetToken(); //3
+            ni = atoi(model->GetToken());
+            mpNormal[i] = pNormal[ni];
+
+            ni = atoi(model->GetToken());
+            mpNormal[i + 1] = pNormal[ni];
+
+            ni = atoi(model->GetToken());
+            mpNormal[i + 2] = pNormal[ni];
+        }
+        delete[] pNormal;
+        model->GetToken(); //}
+    } // End of MeshNormals
     printf("VertexNum:%d\n", mVertexNum);
     for (int i = 0; i < mVertexNum; i++) {
         printf("%10f", mpVertex[i].X());
@@ -218,6 +252,14 @@ void CMesh::Init(CModelX* model) {
         printf("%10d", mpVertexIndex[i]);
         printf("%10d", mpVertexIndex[i + 1]);
         printf("%10d\n", mpVertexIndex[i + 2]);
+    }
+#endif
+#ifdef _DEBUG
+    printf("NormalNum:%d\n", mNormalNum);
+    for (int i = 0; i < mNormalNum; i++) {
+        printf("%10f", mpNormal[i].X());
+        printf("%10f", mpNormal[i].Y());
+        printf("%10f\n", mpNormal[i].Z());
     }
 #endif
 }
