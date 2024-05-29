@@ -1,11 +1,2 @@
-﻿  CMaterial.cpp
-  CMatrix.cpp
-C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CMatrix.cpp(52,12): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CMatrix.cpp(68,12): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CMatrix.cpp(84,12): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-  CSound.cpp
-  main.cpp
-  コードを生成中...
-LINK : warning LNK4098: defaultlib 'MSVCRT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
-LINK : warning LNK4098: defaultlib 'LIBCMT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
+﻿  CModelX.cpp
   GameProgramming.vcxproj -> C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe

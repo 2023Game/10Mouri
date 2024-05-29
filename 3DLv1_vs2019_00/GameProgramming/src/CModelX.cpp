@@ -256,26 +256,27 @@ void CMesh::Init(CModelX* model) {
             model->GetToken(); //}
         } // End of MeshNormals
         //MeshMaterialListのとき
-        else if (strcmp(model->Token(), "MeshMaterialList") == 0)
+        else if (strcmp(model->Token(), "MeshMaterialList") == 0) {
             model->GetToken(); // {
-        //Materialの数
-        mMaterialNum = atoi(model->GetToken());
-        //FaceNum
-        mMaterialIndexNum = atoi(model->GetToken());
-        //マテリアルインデックスの作成
-        mpMaterialIndex = new int[mMaterialIndexNum];
-        for (int i = 0; i < mMaterialIndexNum; i++) {
-            mpMaterialIndex[i] = atoi(model->GetToken());
-        }
-        //マテリアルデータの作成
-        for (int i = 0; i < mMaterialNum; i++) {
-            model->GetToken(); //Material
-            if (strcmp(model->Token(), "Material") == 0) {
-                mMaterial.push_back(new CMaterial(model));
+            //Materialの数
+            mMaterialNum = atoi(model->GetToken());
+            //FaceNum
+            mMaterialIndexNum = atoi(model->GetToken());
+            //マテリアルインデックスの作成
+            mpMaterialIndex = new int[mMaterialIndexNum];
+            for (int i = 0; i < mMaterialIndexNum; i++) {
+                mpMaterialIndex[i] = atoi(model->GetToken());
             }
-        }
-        model->GetToken(); // } //End of MeshMaterialList
-    } //End of MeshMaterialList
+            //マテリアルデータの作成
+            for (int i = 0; i < mMaterialNum; i++) {
+                model->GetToken(); // Material
+                if (strcmp(model->Token(), "Material") == 0) {
+                    mMaterial.push_back(new CMaterial(model));
+                }
+            }
+            model->GetToken(); // } //End of MeshMaterialList
+        } //End of MeshMaterialList
+    }
     printf("VertexNum:%d\n", mVertexNum);
     for (int i = 0; i < mVertexNum; i++) {
         printf("%10f", mpVertex[i].X());
@@ -317,7 +318,7 @@ void CMesh::Render() {
         //マテリアルを適用する
         mMaterial[mpMaterialIndex[i]]->Enabled();
         glDrawElements(GL_TRIANGLES, 3,
-            GL_UNSIGNED_INT, (mpVertexIndex + 1 * 3));
+            GL_UNSIGNED_INT, (mpVertexIndex + i * 3));
     }
 
     /* 頂点データ,法線データの配列を無効にする */
