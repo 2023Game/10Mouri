@@ -1,2 +1,23 @@
-﻿  CModelX.cpp
+﻿  CApplication.cpp
+  CBillBoard.cpp
+  CBullet.cpp
+  CCharacter3.cpp
+  CCollider.cpp
+  CColliderLine.cpp
+  CColliderMesh.cpp
+  CColliderTriangle.cpp
+  CCollisionManager.cpp
+  CEffect.cpp
+  CEnemy.cpp
+  CEnemy3.cpp
+  CMaterial.cpp
+  CModel.cpp
+C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(197,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(209,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(261,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\GameProgramming\src\CModel.cpp(263,21): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  CModelX.cpp
+  CPlayer.cpp
+  main.cpp
+  コードを生成中...
   GameProgramming.vcxproj -> C:\Users\mm1022\Desktop\bit\10Mouri\3DLv1_vs2019_00\Debug\GameProgramming.exe
