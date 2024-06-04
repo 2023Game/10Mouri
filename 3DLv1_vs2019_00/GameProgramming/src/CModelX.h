@@ -6,6 +6,7 @@ class CModelX; //CModelXクラスの宣言
 class CModelXFrame; //CModelXFrameクラスの宣言
 class CMesh; //CMeshクラスの宣言
 class CMaterial; //マテリアルの宣言
+class CSkinWeights; //スキンウェイトクラス
 
 #define MODEL_FILE "res\\sample.blend.x" //入力ファイル名
 
@@ -63,6 +64,8 @@ public:
 	//読み込み処理
 	void Init(CModelX* model);
 private:
+	//スキンウェイト
+	std::vector<CSkinWeights*> mSkinWeights;
 	int mMaterialNum; //マテリアルの宣言
 	int mMaterialIndexNum;//マテリアル番号数(面数)
 	int* mpMaterialIndex; //マテリアル番号
@@ -74,5 +77,24 @@ private:
 	int mVertexNum; //頂点数
 	CVector* mpVertex; //頂点データ
 };
-
+/*
+CSkinWeights
+スキンウェイトクラス
+*/
+class CSkinWeights {
+	friend CModelX;
+	friend CMesh;
+public:
+	CSkinWeights(CModelX* model);
+	~CSkinWeights();
+	const int& FrameIndex();
+	const CMatrix& Offset();
+private:
+	char* mpFrameName; //フレーム名
+	int mFrameIndex; //フレーム番号
+	int mIndexNum; //頂点番号数
+	int* mpIndex; //頂点番号配列
+	float* mpWeight; //頂点ウェイト配列
+	CMatrix mOffset; //オフセットマトリックス
+};
 #endif
