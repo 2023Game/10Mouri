@@ -13,6 +13,8 @@ void CMatrix::Print() {
 	printf("%10f%10f%10f%10f\n",
 		mM[1][0], mM[1][1], mM[1][2], mM[1][3]);
 	printf("%10f%10f%10f%10f\n",
+		mM[2][0], mM[2][1], mM[2][2], mM[2][3]);
+	printf("%10f%10f%10f%10f\n",
 		mM[3][0], mM[3][1], mM[3][2], mM[3][3]);
 }
 

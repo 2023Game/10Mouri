@@ -532,9 +532,6 @@ CAnimation::CAnimation(CModelX* model)
     }
 #ifdef _DEBUG
     printf("Animation:%s\n", mpFrameName);
-#endif
-#ifdef _DEBUG
-    printf("Animation:%s\n", mpFrameName);
     mpKey[0].mMatrix.Print();
 #endif
 }
