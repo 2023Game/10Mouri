@@ -8,6 +8,9 @@
 class CVector;
 class CMatrix {
 public:
+	CMatrix operator*(const float& x) const;
+	CMatrix operator+(const CMatrix& m) const;
+	void operator+=(const CMatrix& m);
 	//クオータニオンで回転行列を設定する
 	CMatrix Quaternion(float x, float y, float z, float w);
 	//要素数の取得

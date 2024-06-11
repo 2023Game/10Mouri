@@ -26,6 +26,8 @@ class CModelX {
 	friend CModelXFrame;
 	friend CAnimation;
 public:
+	std::vector<CAnimationSet*>& AnimationSet();
+	void AnimateFrame();
 	//フレーム名に該当するフレームのアドレスを返す
 	CModelXFrame* FindFrame(char* name);
 	bool EOT(); //トークンが無くなったらtrue
@@ -52,6 +54,7 @@ private:
 class CModelXFrame {
 	friend CModelX;
 	friend CAnimation;
+	friend CAnimationSet;
 public:
 	void Render();
 	//コンストラクタ
@@ -115,10 +118,18 @@ CAnimationSet
 アニメーションセット
 */
 class CAnimationSet {
+	friend CModelX;
 public:
+	void AnimateMatrix(CModelX* model);
+	std::vector<CAnimation*>& Animation();
+	void Time(float time); //時間の設定
+	void Weight(float weight); //重みの設定
 	CAnimationSet(CModelX* model);
 	~CAnimationSet();
 private:
+	float mTime; //現在時間
+	float mWeight; //重み
+	float mMaxTime; //最大時間
 	//アニメーション
 	std::vector<CAnimation*> mAnimation;
 	//アニメーションセット名
@@ -130,6 +141,7 @@ CAnimation
 */
 class CAnimation {
 	friend CAnimationSet;
+	friend CModelX;
 public:
 	CAnimation(CModelX* model);
 	~CAnimation();
