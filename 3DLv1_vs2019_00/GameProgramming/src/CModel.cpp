@@ -4,6 +4,7 @@
 //CVectorのインクルード
 #include "CVector.h"
 #include "CTriangle.h"
+#include "CMaterial.h"
 
 //文字列s1と文字列s2の比較
 //s1とs2が等しければ0を

@@ -500,6 +500,13 @@ void CModelX::AnimateFrame() {
         if (animSet->mWeight == 0) continue;
         animSet->AnimateMatrix(this);
     }
+#ifdef _DEBUG
+    for (size_t i = 0; i < mFrame.size(); i++)
+    {
+        printf("Frame:%s\n", mFrame[i]->mpName);
+        mFrame[i]->mTransformMatrix.Print();
+    }
+#endif
 }
 /*
 FindFrame(ƒtƒŒ[ƒ€–¼)

@@ -26,8 +26,8 @@ class CModelX {
 	friend CModelXFrame;
 	friend CAnimation;
 public:
-	std::vector<CAnimationSet*>& AnimationSet();
 	void AnimateFrame();
+	std::vector<CAnimationSet*>& AnimationSet();
 	//フレーム名に該当するフレームのアドレスを返す
 	CModelXFrame* FindFrame(char* name);
 	bool EOT(); //トークンが無くなったらtrue
