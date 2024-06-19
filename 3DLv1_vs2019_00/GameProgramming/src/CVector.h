@@ -9,6 +9,7 @@
 */
 class CVector {
 public:
+	void operator+=(const CVector& v);
 	//³‹K‰»
 	//‘å‚«‚³1‚ÌƒxƒNƒgƒ‹‚ğ•Ô‚·
 	CVector Normalize() const;
