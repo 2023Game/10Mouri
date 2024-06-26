@@ -350,12 +350,6 @@ void CMesh::Init(CModelX* model) {
             model->SkipNode();
         }
     }
-    printf("VertexNum:%d\n", mVertexNum);
-    for (int i = 0; i < mVertexNum; i++) {
-        printf("%10f", mpVertex[i].X());
-        printf("%10f", mpVertex[i].Y());
-        printf("%10f\n", mpVertex[i].Z());
-    }
 }
 /*
 CSkinWeights
