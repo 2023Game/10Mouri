@@ -13,6 +13,8 @@ IsDelimiter(c)
 */
 bool CModelX::IsDelimiter(char c)
 {
+    if (c < 0)
+        return false;
     //isspace(c)
     //cが空白文字なら0以外を返す
     if (isspace(c) != 0)
@@ -71,8 +73,16 @@ void CModelX::Load(char* file) {
     //文字列の最後まで繰り返し
     while (*mpPointer != '\0') {
         GetToken(); //単語の取得
+        //template読み飛ばし
+        if (strcmp(mToken, "template") == 0) {
+            SkipNode();
+        }
+        //Materialの時
+        else if (strcmp(mToken, "Material") == 0) {
+            new CMaterial(this);
+        }
         //単語がFrameの場合
-        if (strcmp(mToken, "Frame") == 0) {
+        else if (strcmp(mToken, "Frame") == 0) {
             //フレームを作成する
             new CModelXFrame(this);
         }
@@ -151,6 +161,10 @@ CModelX::~CModelX()
     for (size_t i = 0; i < mAnimationSet.size(); i++)
     {
         delete mAnimationSet[i];
+    }
+    //マテリアルの解放
+    for (size_t i = 0; i < mMaterial.size(); i++) {
+        delete mMaterial[i];
     }
 }
 
@@ -316,6 +330,13 @@ void CMesh::Init(CModelX* model) {
                 if (strcmp(model->Token(), "Material") == 0) {
                     mMaterial.push_back(new CMaterial(model));
                 }
+                else {
+                    // { 既出
+                    model->GetToken(); //MaterialName
+                    mMaterial.push_back(
+                        model->FindMaterial(model->Token()));
+                    model->GetToken(); //}
+                }
             }
             model->GetToken(); // } //End of MeshMaterialList
         } //End of MeshMaterialList
@@ -335,22 +356,6 @@ void CMesh::Init(CModelX* model) {
         printf("%10f", mpVertex[i].Y());
         printf("%10f\n", mpVertex[i].Z());
     }
-#ifdef _DEBUG
-    printf("FaceNum:%d\n", mFaceNum);
-    for(int i = 0; i < mFaceNum * 3; i += 3) {
-        printf("%10d", mpVertexIndex[i]);
-        printf("%10d", mpVertexIndex[i + 1]);
-        printf("%10d\n", mpVertexIndex[i + 2]);
-    }
-#endif
-#ifdef _DEBUG
-    printf("NormalNum:%d\n", mNormalNum);
-    for (int i = 0; i < mNormalNum; i++) {
-        printf("%10f", mpNormal[i].X());
-        printf("%10f", mpNormal[i].Y());
-        printf("%10f\n", mpNormal[i].Z());
-    }
-#endif
 }
 /*
 CSkinWeights
@@ -388,13 +393,6 @@ CSkinWeights::CSkinWeights(CModelX* model)
         mOffset.M()[i] = atof(model->GetToken());
     }
     model->GetToken(); //}
-#ifdef _DEBUG
-    printf("SkinWeights %s\n", mpFrameName);
-    for (int i = 0; i < mIndexNum; i++) {
-        printf("%3d%10f\n", mpIndex[i], mpWeight[i]);
-    }
-    mOffset.Print();
-#endif
 }
 /*
 CAnimationSet
@@ -421,9 +419,6 @@ CAnimationSet::CAnimationSet(CModelX* model)
     }
     //終了時間設定
     mMaxTime = mAnimation[0]->mpKey[mAnimation[0]->mKeyNum - 1].mTime;
-#ifdef _DEBUG
-    printf("AnimationSet:%s\n", mpName);
-#endif
 }
 void CAnimationSet::Time(float time)
 {
@@ -510,13 +505,6 @@ void CModelX::AnimateFrame() {
         if (animSet->mWeight == 0) continue;
         animSet->AnimateMatrix(this);
     }
-#ifdef _DEBUG
-    for (size_t i = 0; i < mFrame.size(); i++)
-    {
-        printf("Frame:%s\n", mFrame[i]->mpName);
-        mFrame[i]->mTransformMatrix.Print();
-    }
-#endif
 }
 /*
 FindFrame(フレーム名)
@@ -641,10 +629,6 @@ CAnimation::CAnimation(CModelX* model)
             mpKey[i].mMatrix = key[1][i] * key[0][i] * key[2][i];
         }
     }
-#ifdef _DEBUG
-    printf("Animation:%s\n", mpFrameName);
-    mpKey[0].mMatrix.Print();
-#endif
 }
 int CModelXFrame::Index()
 {
@@ -746,11 +730,6 @@ CModelXFrame::CModelXFrame(CModelX* model)
             model->SkipNode();
         }
     }
-//デバッグバージョンのみ有効
-#ifdef _DEBUG
-    printf("%s\n", mpName);
-    mTransformMatrix.Print();
-#endif
 }
 /*
 AnimateCombined
@@ -763,10 +742,6 @@ void CModelXFrame::AnimateCombined(CMatrix* parent) {
     for (size_t i = 0; i < mChild.size(); i++) {
         mChild[i]->AnimateCombined(&mCombinedMatrix);
     }
-#ifdef _DEBUG
-    printf("Frame::%s\n", mpName);
-    mCombinedMatrix.Print();
-#endif
 }
 
 std::vector<CModelXFrame*>& CModelX::Frames()
@@ -849,4 +824,23 @@ float CAnimationSet::Time()
 float CAnimationSet::MaxTime()
 {
     return mMaxTime;
+}
+
+CMaterial* CModelX::FindMaterial(char* name) {
+    //マテリアル配列のイテレータ作成
+    std::vector<CMaterial*>::iterator itr;
+    //マテリアル配列を先頭から順に検索
+    for (itr = mMaterial.begin(); itr != mMaterial.end(); itr++) {
+        //名前が一致すればマテリアルのポインタを返却
+        if (strcmp(name, (*itr)->Name()) == 0) {
+            return *itr;
+        }
+    }
+    //無い時はnullptrを返却
+    return nullptr;
+}
+
+std::vector<CMaterial*>& CModelX::Material()
+{
+    return mMaterial;
 }
