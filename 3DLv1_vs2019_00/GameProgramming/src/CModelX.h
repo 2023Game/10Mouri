@@ -26,6 +26,7 @@ class CModelX {
 	friend CModelXFrame;
 	friend CAnimation;
 public:
+	std::vector<CAnimationSet*>& AnimationSet();
 	//マテリアル配列の取得
 	std::vector<CMaterial*>& Material();
 	//マテリアルの検索
@@ -36,7 +37,6 @@ public:
 	void SetSkinWeightFrameIndex();
 	std::vector<CModelXFrame*>& Frames();
 	void AnimateFrame();
-	std::vector<CAnimationSet*>& AnimationSet();
 	//フレーム名に該当するフレームのアドレスを返す
 	CModelXFrame* FindFrame(char* name);
 	bool EOT(); //トークンが無くなったらtrue
@@ -66,9 +66,8 @@ class CModelXFrame {
 	friend CAnimation;
 	friend CAnimationSet;
 public:
-	const CMatrix& CombinedMatrix();
-	//合成行列の作成
 	void AnimateCombined(CMatrix* parent);
+	const CMatrix& CombinedMatrix();
 	void Render();
 	//コンストラクタ
 	CModelXFrame(CModelX* model);

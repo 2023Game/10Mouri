@@ -38,11 +38,6 @@ CModelX::CModelX()
     memset(mToken, 0, sizeof(mToken));
 }
 
-std::vector<CAnimationSet*>& CModelX::AnimationSet()
-{
-    return mAnimationSet;
-}
-
 void CModelX::Load(char* file) {
     //
     //ファイルサイズを取得する
@@ -743,18 +738,6 @@ CModelXFrame::CModelXFrame(CModelX* model)
         }
     }
 }
-/*
-AnimateCombined
-合成行列の作成
-*/
-void CModelXFrame::AnimateCombined(CMatrix* parent) {
-    //自分の変換行列に、親からの変換行列を掛ける
-    mCombinedMatrix = mTransformMatrix * (*parent);
-    //子フレームの合成行列を作成する
-    for (size_t i = 0; i < mChild.size(); i++) {
-        mChild[i]->AnimateCombined(&mCombinedMatrix);
-    }
-}
 
 std::vector<CModelXFrame*>& CModelX::Frames()
 {
@@ -855,4 +838,21 @@ CMaterial* CModelX::FindMaterial(char* name) {
 std::vector<CMaterial*>& CModelX::Material()
 {
     return mMaterial;
+}
+/*
+AnimateConbined
+合成行列の作成
+*/
+void CModelXFrame::AnimateCombined(CMatrix* parent) {
+    //自分の変換行列に、親からの変換行列を掛ける
+    mCombinedMatrix = mTransformMatrix * (*parent);
+    //子フレームの合成行列を作成する
+    for (size_t i = 0; i < mChild.size(); i++) {
+        mChild[i]->AnimateCombined(&mCombinedMatrix);
+    }
+}
+
+std::vector<CAnimationSet*>& CModelX::AnimationSet()
+{
+    return mAnimationSet;
 }
