@@ -16,10 +16,13 @@
 #include "CUi.h"
 #include "CXCharacter.h"
 #include "CXPlayer.h"
+#include "CXEnemy.h"
 
 class CApplication
 {
 private:
+	//敵のインスタンス
+	CXEnemy mXEnemy;
 	//キャラクタのインスタンス
 	CXPlayer mXPlayer;
 	CMatrix mMatrix;
@@ -58,6 +61,7 @@ private:
 	CInput mInput;
 	CFont mFont;
 public:
+	void Init();
 	~CApplication();
 	static CUi* Ui(); //UIクラスのインスタンスを取得
 	//モデルビュー行列の取得

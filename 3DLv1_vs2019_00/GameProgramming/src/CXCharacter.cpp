@@ -10,6 +10,8 @@ Init
 初期化処理
 */
 void CXCharacter::Init(CModelX* model) {
+	//合成行列退避エリアの確保
+	mpCombinedMatrix = new CMatrix[model->Frames().size()];
 	mpModel = model;
 	//最初のアニメーションにする
 	mAnimationIndex = 0;
@@ -53,6 +55,11 @@ Update
 matrix:移動、回転、拡大縮小の行列
 */
 void CXCharacter::Update(CMatrix& matrix) {
+	for (size_t i = 0; i < mpModel->AnimationSet().size(); ++i)
+	{
+		mpModel->AnimationSet()[i]->Weight(0.0f);
+	}
+	mpModel->AnimationSet()[mAnimationIndex]->Weight(1.0f);
 	//最後まで再生する
 	if (mAnimationFrame <= mAnimationFrameSize) {
 		//アニメーションの時間を計算
@@ -80,13 +87,20 @@ void CXCharacter::Update(CMatrix& matrix) {
 	mpModel->AnimateFrame();
 	//フレームの合成行列を計算する
 	mpModel->Frames()[0]->AnimateCombined(&matrix);
+	//合成行列の退避
+	for (size_t i = 0; i < mpModel->Frames().size(); i++) {
+		mpCombinedMatrix[i] =
+			mpModel->Frames()[i]->CombinedMatrix();
+	}
 	//頂点にアニメーションを適用する
-	mpModel->AnimateVertex();
+	//mpModel->AnimateVertex();
 }
 /*
 描画する
 */
 void CXCharacter::Render() {
+	//頂点にアニメーションを適用する
+	mpModel->AnimateVertex(mpCombinedMatrix);
 	mpModel->Render();
 }
 
