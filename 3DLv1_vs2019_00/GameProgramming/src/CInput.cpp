@@ -1,5 +1,6 @@
 #include "CInput.h"
 #include <stdio.h>
+#include "CXPlayer.h"
 
 GLFWwindow* CInput::spWindow = nullptr;	//ウィンドウのポインタ
 
