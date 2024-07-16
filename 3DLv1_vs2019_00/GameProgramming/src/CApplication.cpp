@@ -86,6 +86,8 @@ void CApplication::Update() {
 	//ƒ‚ƒfƒ‹•`‰æ
 	//mModelX.Render();
 	mXPlayer.Render();
+	//ƒRƒ‰ƒCƒ_‚Ì•`‰æ
+	CCollisionManager::Instance()->Render();
 	mXEnemy.Render();
 
 	//2D•`‰æŠJn

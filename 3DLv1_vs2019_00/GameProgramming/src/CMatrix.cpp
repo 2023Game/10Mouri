@@ -6,6 +6,7 @@
 //数学関数んインクルード
 #include <math.h>
 #include "CVector.h"
+#include "CCollider.h"
 
 void CMatrix::Print() {
 	printf("%10f%10f%10f%10f\n",
@@ -31,7 +32,6 @@ CMatrix CMatrix::Identity() {
 	//この行列を返す
 	return *this;
 }
-
 //拡大縮小行列の作成
 //Scale(倍率X,倍率Y,倍率Z)
 CMatrix CMatrix::Scale(float sx, float sy, float sz) {
@@ -42,8 +42,8 @@ CMatrix CMatrix::Scale(float sx, float sy, float sz) {
 	//この行列を返す
 	return *this;
 }
-float CMatrix::M(int r, int c) const  {
 
+float CMatrix::M(int r, int c) const {
 	return mM[r][c];
 }
 

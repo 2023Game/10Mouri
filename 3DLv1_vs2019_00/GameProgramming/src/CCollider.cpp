@@ -176,3 +176,7 @@ void CCollider::ChangePriority()
 	//ベクトルの長さが優先度
 	CCollider::ChangePriority(pos.Lenght());
 }
+
+void CCollider::Matrix(CMatrix* m)
+{
+}

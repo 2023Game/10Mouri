@@ -43,7 +43,7 @@ public:
 	//s—ñ’l‚Ìæ“¾
 	//M(s,—ñ)
 	//mM[s][—ñ]‚ğæ“¾
-	float M(int r, int c)const;
+	float M(int r, int c) const;
 	//Šg‘åk¬s—ñ‚Ìì¬
 	//Scale(”{—¦X,”{—¦Y,”{—¦Z)
 	CMatrix Scale(float sx, float sy, float sz);
