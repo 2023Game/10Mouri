@@ -42,6 +42,8 @@ void CApplication::Start()
 }
 
 void CApplication::Update() {
+	//衝突処理
+	CCollisionManager::Instance()->Collision();
 	//キャラクタークラスの更新
 	mXPlayer.Update();
 	//敵の更新
