@@ -1,4 +1,3 @@
-#pragma once
 #include "CTexture.h"
 #include "CBullet.h"
 #include "CEnemy.h"
@@ -21,6 +20,7 @@
 class CApplication
 {
 private:
+	CModelX mKnight;
 	//敵のインスタンス
 	CXEnemy mXEnemy;
 	//キャラクタのインスタンス
@@ -61,7 +61,6 @@ private:
 	CInput mInput;
 	CFont mFont;
 public:
-	void Init();
 	~CApplication();
 	static CUi* Ui(); //UIクラスのインスタンスを取得
 	//モデルビュー行列の取得
@@ -71,4 +70,5 @@ public:
 	void Start();
 	//繰り返し実行するプログラム
 	void Update();
+	void CModelX();
 };
